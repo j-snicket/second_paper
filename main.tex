@@ -13,21 +13,27 @@
 \email{maryam.hussaini@cfa.harvard.edu} % from Liam: only list your email, you are corresponding author.
 \affiliation{Center for Astrophysics $\mid$ Harvard \& Smithsonian, Cambridge, MA 02138, USA}
 
+\author[0000-0002-7587-6352]{Aizhan Akhmetzhanova}
+%\email{liam.connor@cfa.harvard.edu}
+\affiliation{Center for Astrophysics $\mid$ Harvard \& Smithsonian, Cambridge, MA 02138, USA}
+
+\author[0000-0002-7587-6352]{Carolina Cuesta-Lazaro}
+%\email{liam.connor@cfa.harvard.edu}
+\affiliation{Center for Astrophysics $\mid$ Harvard \& Smithsonian, Cambridge, MA 02138, USA}
+
 \author[0000-0002-7587-6352]{Liam Connor}
 %\email{liam.connor@cfa.harvard.edu}
 \affiliation{Center for Astrophysics $\mid$ Harvard \& Smithsonian, Cambridge, MA 02138, USA}
 
-\author[0000-0001-8235-2939]{Ralf M. Konietzka}
-
-\affiliation{Center for Astrophysics $\mid$ Harvard \& Smithsonian, Cambridge, MA 02138, USA}
 
 \begin{abstract}
-
+In this work, we introduce a method to reconstruct gas fields from galaxies using a diffusion model. The diffusion model is trained on the CAMELS50 simulation, IllustrisTNG suite. We demonstrate that the diffusion model can predict the posterior distribution of the underlying gas fields from the given galaxy fields, weighted by stellar mass. 
 \end{abstract}
 
 
 \section{Introduction}
 \label{sec:intro}
+3D reconstruction of the cosmic web is so helpful when using FRBs as probes for the large scale structure. Luckily, due to advances in machine learning, the models for 3D reconstruction have gotten so much better. We are optimizing an existing algorithm to use it for 3D gas reconstruction and tailoring it to FRB studies. By training the model in a feedback conditional way, we will one day be able to use reconstruction of the gas to discriminate against unfavorable feedback parameters. 
 
 \begin{figure}
     \centering
@@ -43,8 +49,24 @@
     \label{fig:placeholder}
 \end{figure}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/patch_map.pdf}
+    \caption{Caption}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/patch_hist.pdf}
+    \caption{Caption}
+    \label{fig:placeholder}
+\end{figure}
 \section{Methods}
 \label{sec:methods}
+In this work we use 3D maps from CAMELS50 to model the connection between galaxy field and gas. We use the IllustrisTNG suite. CAMELS simulations have a box volume of $(50\,h^{-1}\,\mathrm{Mpc})^3$. We used 1000 simulation boxes with dimensions $50 \times 50 \times 50\,(\,h^{-1}\,\mathrm{Mpc})^3$ that included the parameters for that box, 3D galaxy density weighted by stellar mass, and gas 3D density. Each box is 128 x 128 x 128 pixels. 
+
+
 
 \section{Simulation}
 \label{sec:data}
