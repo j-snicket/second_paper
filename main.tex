@@ -38,14 +38,19 @@ In this work, we introduce a method to reconstruct gas fields from galaxies usin
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{figures/correct_wrong_cosmology.pdf}
-    \caption{Enter Caption}
+    \caption{\textbf{Top left:} Input galaxy density field used to condition the model. 
+\textbf{Top right:} True gas density from the CAMELS50 simulation for this test box. 
+\textbf{Middle row:} Three samples and the mean posterior of gas density when the model is conditioned on the same cosmological parameters as the test box; the predictions closely match the true gas distribution. 
+\textbf{Bottom row:} Three samples and the mean posterior of gas density when the model is conditioned on an alternative cosmology; the predicted gas distribution shows reduced total gas content, consistent with a lower baryon universe as dictated by the parameters. 
+This figure demonstrates that the diffusion model learns the relationship between cosmological parameters and gas distributions, producing physically plausible predictions that vary appropriately with input parameters.}
     \label{fig:placeholder}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{figures/all_sky.pdf}
-    \caption{Enter Caption}
+    \caption{Comparison of dispersion measure (DM) distributions from a CAMELS50 reconstruction field and TNG simulated FRBS. The red histogram shows the dispersion measure (DM) distribution calculated by integrating the gas density along all lines of sight through a CAMELS50 simulation box of size $50\,h^{-1}\,\mathrm{Mpc}$. The black histogram shows the DM distribution from 1000 randomly placed FRBs at a distance of 50 Mpc in the TNG50 simulation, corresponding to the path length through a CAMELS50 box. The reconstructed gas distributions produce DM values consistent with TNG FRB dispersion measures.\textbf{xxx wait, are we saying CAMELS recon distribution matches TNG random FRB DMs? what does that prove?}
+}
     \label{fig:placeholder}
 \end{figure}
 
@@ -58,16 +63,27 @@ In this work, we introduce a method to reconstruct gas fields from galaxies usin
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/patch_hist.pdf}
-    \caption{Caption}
+    \includegraphics[width=0.5\linewidth]{figures/pixel_hist.pdf}
+    \caption{Distribution of dispersion measure values for a test box in CAMELS. The red and green histograms show the distributions of true and posterior mean DM values across the entire box, respectively. The red vertical line marks the true value of a single pixel, and the black histogram shows the distribution of that pixel's value across 150 different samples. This comparison shows that the model's samples recover a distribution centered near the true pixel value, consistent with a normal distribution around the ground truth.}
     \label{fig:placeholder}
 \end{figure}
 \section{Methods}
 \label{sec:methods}
 In this work we use 3D maps from CAMELS50 to model the connection between galaxy field and gas. We use the IllustrisTNG suite. CAMELS simulations have a box volume of $(50\,h^{-1}\,\mathrm{Mpc})^3$. We used 1000 simulation boxes with dimensions $50 \times 50 \times 50\,(\,h^{-1}\,\mathrm{Mpc})^3$ that included the parameters for that box, 3D galaxy density weighted by stellar mass, and gas 3D density. Each box is 128 x 128 x 128 pixels. 
 
+Since TNG50 has a box size of $(35\,h^{-1}\,\mathrm{Mpc})^3$, which differs from the CAMELS50 training data at $(50\,h^{-1}\,\mathrm{Mpc})^3$, we needed to rescale the TNG50 data to match the model's training distribution. The volume difference results in different pixel sizes and galaxy number densities per voxel.
 
-
+We preprocessed the TNG50 data as follows:
+\begin{enumerate}
+    \item Rescaled all galaxy positions by a factor of $\frac{50}{35}$ to map them into the CAMELS50 box size.
+    \item Created a $128^3$ voxel grid spanning the rescaled $50\,h^{-1}\,\mathrm{Mpc}$ box.
+    \item Applied a minimum stellar mass threshold, removing all galaxies with $M_{\star} < M_{\star,\mathrm{min}}$.
+    \item Populated the grid using Cloud-In-Cell (CIC) interpolation, weighting each galaxy by $\log_{10}(M_{\star})$, where $M_{\star}$ is stellar mass.
+    \item Computed $\log_{10}$ of the resulting density field.
+    \item Normalized using the mean and standard deviation from CAMELS50 training: 
+    $\tilde{f}_{\mathrm{gal}} = \frac{\log_{10}(f_{\mathrm{gal}}) - \mu}{\sigma}$, 
+    where $\mu = \text{XXX}$ and $\sigma = \text{XXX}$.
+\end{enumerate}
 \section{Simulation}
 \label{sec:data}
 
