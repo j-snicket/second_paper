@@ -56,17 +56,11 @@ This figure demonstrates that the diffusion model learns the relationship betwee
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/patch_map.pdf}
-    \caption{Caption}
+    \includegraphics[width=0.5\linewidth]{figures/patch_hist_box9.pdf}
+    \caption{Distribution of dispersion measure values for test box 9 in CAMELS. The black histogram shows the distributions of true DM values across the entire box. The black vertical line marks the true value of a single pixel, and the black histogram shows the distribution of that pixel's value across 150 different samples. This comparison shows that the model's samples recover a distribution centered near the true pixel value, consistent with a normal distribution around the ground truth.}
     \label{fig:placeholder}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/pixel_hist.pdf}
-    \caption{Distribution of dispersion measure values for a test box in CAMELS. The red and green histograms show the distributions of true and posterior mean DM values across the entire box, respectively. The red vertical line marks the true value of a single pixel, and the black histogram shows the distribution of that pixel's value across 150 different samples. This comparison shows that the model's samples recover a distribution centered near the true pixel value, consistent with a normal distribution around the ground truth.}
-    \label{fig:placeholder}
-\end{figure}
 \section{Methods}
 \label{sec:methods}
 In this work we use 3D maps from CAMELS50 to model the connection between galaxy field and gas. We use the IllustrisTNG suite. CAMELS simulations have a box volume of $(50\,h^{-1}\,\mathrm{Mpc})^3$. We used 1000 simulation boxes with dimensions $50 \times 50 \times 50\,(\,h^{-1}\,\mathrm{Mpc})^3$ that included the parameters for that box, 3D galaxy density weighted by stellar mass, and gas 3D density. Each box is 128 x 128 x 128 pixels. 
