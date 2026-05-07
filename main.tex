@@ -33,7 +33,21 @@ In this work, we introduce a method to reconstruct gas fields from galaxies usin
 
 \section{Introduction}
 \label{sec:intro}
+% What is an FRB and why do astronomers care about it?
+FRBs are bright, short-duration (ms), transient, radio signals coming from all over the universe from other galaxies. The radio signal of the burst interacts with the ionized diffuse gas it encounters on its path, and higher frequencies arrive later than lower frequencies. The measurement of this delay, called the dispersion measure, can tell us how much ionized gas was along the line of sight of the FRB. In its path, the FRB interacts with gas in its host galaxy, the intergalactic medium, circumgalactic medium of other galaxies it passes by, and the gas in the Milky Way. By measuring the dispersion measure, we can determine the total sum of all these matters. This is important because some of the matter in the universe, like the intergalactic medium, is very hard to detect by other methods given that it is diffuse and hot. But with FRBs, we can prove this diffuse matter and measure the quantity of it. 
+
+% Why do we need to know what's in the gas between galaxies?
+
+Most of the matter in the universe is between galaxies, in the intergalactic medium. Having a reconstruction of the gas between galaxies is mapping the "missing baryons." Understanding how that matter is structured will help us understand how supernova and AGN feedback work. Having a good reconstruction of the gas between galaxies will help us discriminate against unphysical feedback models. 
+
+% How do we currently try to reconstruct the gas between galaxies?
+
+We know the distribution of galaxies in the universe through observations and surveys, be it noisy or with biased selection functions. But any distribution of gas between galaxies that we have right now is based on simulations. There is no real observational input. And the connection between observed matter (galaxies) and gas is not straightforward. Luckily, there has been significant progress in recent years in machine learning methods. Using an existing algorithm for 3D reconstruction and optimizing it for FRBs, we are introducing a framework where inputting the galaxy density field and stellar mass, we can produce a 3D map of the hidden gas between galaxies. 
+\\
+\\
 3D reconstruction of the cosmic web is so helpful when using FRBs as probes for the large scale structure. Luckily, due to advances in machine learning, the models for 3D reconstruction have gotten so much better. We are optimizing an existing algorithm to use it for 3D gas reconstruction and tailoring it to FRB studies. By training the model in a feedback conditional way, we will one day be able to use reconstruction of the gas to discriminate against unfavorable feedback parameters. 
+
+To test if our model could be generalized to bigger box sizes, we ran inference on TNG boxes. Our model had trained on the TNG suite in the CAMELS simulation, so it should work equally as well on a TNG input. The box size that our model trained on was 50 mpc $^3$, but we ran inference on boxes as large as 302 mpc$^3$ and recovered good reconstructions. 
 
 \begin{figure}
     \centering
@@ -43,7 +57,7 @@ In this work, we introduce a method to reconstruct gas fields from galaxies usin
 \textbf{Middle row:} Three samples and the mean posterior of gas density when the model is conditioned on the same cosmological parameters as the test box; the predictions closely match the true gas distribution. 
 \textbf{Bottom row:} Three samples and the mean posterior of gas density when the model is conditioned on an alternative cosmology; the predicted gas distribution shows reduced total gas content, consistent with a lower baryon universe as dictated by the parameters. 
 This figure demonstrates that the diffusion model learns the relationship between cosmological parameters and gas distributions, producing physically plausible predictions that vary appropriately with input parameters.}
-    \label{fig:placeholder}
+    \label{fig:1}
 \end{figure}
 
 \begin{figure}
@@ -80,10 +94,15 @@ We preprocessed the TNG50 data as follows:
 \end{enumerate}
 \section{Simulation}
 \label{sec:data}
-
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.5\linewidth]{figures/patch_hist_box9.pdf}
+%     \caption{Caption}
+%     \label{fig:placeholder}
+% \end{figure}
 \section{Results}
 \label{sec:results}
-
+we give the model a galaxy field a set of parameters. Ideally, the model will know how to map the galaxy field into a gas distribution in a way that preserve the constrains set by the parameters. So, for the same galaxy field input and the same seed, if $\Omega_b$ is higher we would expect more gas. Testing this hypothesis, that’s what we see in figure \ref{fig:1}. The right cosmology row refers to a set of parameters that have the same values as the test box, so the gas distribution we get should match that of the test box. The wrong cosmology row has lower value cosmological parameters than what we have in the test box, so the gas distribution should be a little more sparse and have less gas in total. 
 \section{Discussion}
 \label{sec:discussion}
 
