@@ -63,7 +63,8 @@ This figure demonstrates that the diffusion model learns the relationship betwee
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{figures/DM_recon_DM_true.pdf}
-    \caption{box 10. }
+    \caption{%box 10. 
+    \textbf{Left panel:} Scatter plot comparing the model's posterior mean DM predictions (y-axis) against true DM values (x-axis) for all lines of sight through a test CAMELS50 box. Each point represents a single line of sight; the dashed line marks perfect 1:1 agreement. \textbf{Right panel:}  Histogram of DM values from the same test box, showing the distribution of true DM (gray) and model-reconstructed DM (orange). The model reproduces both the point-by-point accuracy of individual lines of sight and the overall statistical distribution of DM values}
     \label{fig:placeholder}
 \end{figure}
 
@@ -80,8 +81,8 @@ This figure demonstrates that the diffusion model learns the relationship betwee
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{figures/patch_hist_box9.pdf}
-    \caption{Distribution of dispersion measure values for test box 9 in CAMELS. The black histogram shows the distributions of true DM values across the entire box. The black vertical line marks the true value of a single pixel, and the black histogram shows the distribution of that pixel's value across 150 different samples. This comparison shows that the model's samples recover a distribution centered near the true pixel value, consistent with a normal distribution around the ground truth.}
-    \label{fig:placeholder}
+    \caption{\textbf{Top row, left to right:} Input galaxy density field to the model; the true simulated DM map; one sample from the model's posterior distribution. \textbf{Bottom row:} Histograms from three representative pixels chosen in different environments: a dense node (high density; red), a filament (intermediate density; blue), and a void (low density; green). In each histogram, the black bars show the overall distribution of DM values across the entire test box for reference. The colored histogram shows 150 independent posterior samples drawn from the diffusion model at a single pixel location marked in the first row panels. The colored vertical line marks the ground truth DM value at that pixel. The model's posterior samples cluster tightly around the true value in all three cosmic environments, demonstrating that the model produces well-calibrated uncertainty estimates that bracket the ground truth.}
+    \label{fig:patch_hist_box9}
 \end{figure}
 
 \section{Methods}
@@ -106,12 +107,28 @@ We preprocessed the TNG50 data as follows:
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{figures/TNG300_generalization.pdf}
-    \caption{Caption}
+    \caption{    \textbf{Top row, left to right)} Input galaxy density field; true DM map from a TNG300 simulation box of size $(302\,h^{-1}\,\mathrm{Mpc})^3$; the model's reconstructed mean DM. The model was trained exclusively on CAMELS50 boxes of $(50\,h^{-1}\,\mathrm{Mpc})^3$, making this a 6$\times$ scaling test. (Bottom right) Histogram comparing the distribution of true DM values (gray) to reconstructed DM values (orange) across the entire TNG300 box. The reconstructed DM distribution closely matches the true distribution, though the model shows a systematic underprediction of approximately 0.1 in $\log_{10}(\mathrm{DM})$ on average.
+}
     \label{fig:placeholder}
 \end{figure}
 \section{Results}
 \label{sec:results}
 we give the model a galaxy field a set of parameters. Ideally, the model will know how to map the galaxy field into a gas distribution in a way that preserve the constrains set by the parameters. So, for the same galaxy field input and the same seed, if $\Omega_b$ is higher we would expect more gas. Testing this hypothesis, that’s what we see in figure \ref{fig:1}. The right cosmology row refers to a set of parameters that have the same values as the test box, so the gas distribution we get should match that of the test box. The wrong cosmology row has lower value cosmological parameters than what we have in the test box, so the gas distribution should be a little more sparse and have less gas in total. 
+
+What matters in FRB science is the accuracy of the dispersion measure from a sightline (a single pixel). In figure \ref{fig:placeholder} the scatter plot compares the reconstruction DM and true DM across all sightlines (pixels) in a CAMELS test box. The plot shows a tight scatter around a 1:1 line with $\sigma = xxx$. The model does better in lower DM higher DMs as the scatter broadens with higher DMs. The histogram of the same figure demonstrates that the model can reproduce the distribution of DMs accurately, not just the individual sightlines. which means the model knows how to map between galaxies (input) and gas (output). 
+
+To validate the model's predictions, we examined DM samples at individual pixels across different cosmic environments. Figure \ref{fig:patch_hist_box9} shows 150 independent samples drawn from the model at three representative locations: a void, a filament, and a dense node. In all three environments, the model's samples cluster tightly around the ground truth value. This is important because instead of giving a single point estimate like "DM = 1000", the model provides a distribution: "DM is likely between X and Y." The true value sits in the middle of this distribution which shows the model has learned realistic uncertainty. It's not overconfident (which would give you a sharp spike that might miss the truth) and it's not useless (which would give you a huge spread).
+
+To test whether the model generalizes beyond the training distribution, we applied it to TNG300, a simulation box six times larger than the CAMELS50 training data (302 vs 50 $h^{-1}$ Mpc on a side). We rescaled the TNG300 data using the same preprocessing pipeline as the training data. Figure \ref{fig:tng300_generalization} shows that the model successfully reconstructs the DM distribution across the larger box. The reconstructed DM histogram closely matches the true distribution, which demonstrates that the model learned generalizable physics rather than memorizing training patterns, and can scale to significantly larger volumes than those used for training. Although the model shows a systematic underprediction of approximately 0.1 in $\log_{10}(\mathrm{DM})$ on average which could be due to the normalization process (we normalize using CAMELS50 mean/std, but TNG300 might have different gas statistics. Ask Aizhanxxx.)
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/model_comparison.pdf}
+    \caption{Input galaxy density field; true DM map; reconstructed DM from three different models that condition on cosmology in different ways. The three models are: (1) conditioning on the baryonic suppression power spectrum (`cosmo normalization pk`), (2) conditioning on 11 selected cosmological parameters (`params maryam`), and (3) a baseline model that does not condition on cosmological parameters at all (`marginalized`). Histogram comparing the DM distributions produced by each model (colored) to the true distribution (black line).
+}
+    \label{fig:placeholder}
+\end{figure}
 \section{Discussion}
 \label{sec:discussion}
 
