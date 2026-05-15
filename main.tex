@@ -48,7 +48,12 @@ We know the distribution of galaxies in the universe through observations and su
 3D reconstruction of the cosmic web is so helpful when using FRBs as probes for the large scale structure. Luckily, due to advances in machine learning, the models for 3D reconstruction have gotten so much better. We are optimizing an existing algorithm to use it for 3D gas reconstruction and tailoring it to FRB studies. By training the model in a feedback conditional way, we will one day be able to use reconstruction of the gas to discriminate against unfavorable feedback parameters. 
 
 To test if our model could be generalized to bigger box sizes, we ran inference on TNG boxes. Our model had trained on the TNG suite in the CAMELS simulation, so it should work equally as well on a TNG input. The box size that our model trained on was 50 mpc $^3$, but we ran inference on boxes as large as 302 mpc$^3$ and recovered good reconstructions. 
-
+\\
+The dispersion measure (DM) is a measure of the total amount of gas along the line of sight toward a source. It is defined as the integral of electron density along the path:
+\begin{equation}
+\mathrm{DM} = \int_0^d n_e(l)\,dl
+\end{equation}
+where $n_e(l)$ is the electron density at distance $l$ along the line of sight. In practice, DM tells us how much ionized gas the radio signal passed through. In our simulations, we compute DM by summing the gas density along one spatial direction (the line of sight), which produces a 2D map where each pixel value represents the total gas column in that direction. This makes DM a key observable: FRBs measure DM directly, and our reconstructed gas fields allow us to predict what DM values should be for any location in the universe.
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{figures/correct_wrong_cosmology.pdf}
@@ -72,8 +77,10 @@ This figure demonstrates that the diffusion model learns the relationship betwee
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/all_sky.pdf}
-    \caption{Comparison of dispersion measure (DM) distributions from a CAMELS50 reconstruction field and TNG simulated FRBS. The red histogram shows the dispersion measure (DM) distribution calculated by integrating the gas density along all lines of sight through a CAMELS50 simulation box of size $50\,h^{-1}\,\mathrm{Mpc}$. The black histogram shows the DM distribution from 1000 randomly placed FRBs at a distance of 50 Mpc in the TNG50 simulation, corresponding to the path length through a CAMELS50 box. The reconstructed gas distributions produce DM values consistent with TNG FRB dispersion measures.\textbf{xxx wait, are we saying CAMELS recon distribution matches TNG random FRB DMs? what does that prove?}
+    \includegraphics[width=0.5\linewidth]{figures/rank_density.pdf}
+     \caption{
+    2D histogram showing the rank correlation of DM values: the x-axis represents the rank of true DM values (sorted from lowest to highest), and the y-axis represents the rank of reconstructed DM values from the model's posterior mean. The white dashed line indicates perfect 1:1 agreement. The density of points (color scale from purple to yellow) shows the concentration of lines of sight at each rank pair. High density along the diagonal demonstrates that the model preserves the relative ordering of DM values across the full dynamic range, even when absolute predictions deviate. 
+    Spearman rank correlation: 0.8517
 }
     \label{fig:placeholder}
 \end{figure}
