@@ -75,15 +75,7 @@ This figure demonstrates that the diffusion model learns the relationship betwee
 
 
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/rank_density.pdf}
-     \caption{
-    2D histogram showing the rank correlation of DM values: the x-axis represents the rank of true DM values (sorted from lowest to highest), and the y-axis represents the rank of reconstructed DM values from the model's posterior mean. The white dashed line indicates perfect 1:1 agreement. The density of points (color scale from purple to yellow) shows the concentration of lines of sight at each rank pair. High density along the diagonal demonstrates that the model preserves the relative ordering of DM values across the full dynamic range, even when absolute predictions deviate. 
-    Spearman rank correlation: 0.8517
-}
-    \label{fig:placeholder}
-\end{figure}
+
 
 \begin{figure}
     \centering
@@ -108,8 +100,8 @@ To address this, we trained a new model conditioned on the baryon suppression sp
     }
     \label{fig:placeholder_pk}
     
-        \includegraphics[width=0.5\linewidth]{figures/placeholder_pk_hist.png}
-        \caption{Histogram of pixel values showing the distribution of gas densities for each suppression scenario. The distributions shift systematically with suppression, demonstrating that the model captures the physically expected changes in gas clustering and abundance across a range of cosmological and feedback scenarios.}
+        \includegraphics[width=0.5\linewidth]{figures/pk_only_hist.pdf}
+        \caption{Histogram of pixel values showing the distribution of gas densities for each suppression scenario for the 10 test boxes. The distributions shift systematically with suppression, demonstrating that the model captures the physically expected changes in gas clustering and abundance across a range of cosmological and feedback scenarios.}
         \label{fig:placeholder_pk_hist}
 \end{figure}
 We preprocessed the TNG50 data as follows:
@@ -130,7 +122,7 @@ We preprocessed the TNG50 data as follows:
     \includegraphics[width=0.5\linewidth]{figures/TNG300_generalization.pdf}
     \caption{    \textbf{Top row, left to right)} Input galaxy density field; true DM map from a TNG300 simulation box of size $(302\,h^{-1}\,\mathrm{Mpc})^3$; the model's reconstructed mean DM. The model was trained exclusively on CAMELS50 boxes of $(50\,h^{-1}\,\mathrm{Mpc})^3$, making this a 6$\times$ scaling test. (Bottom right) Histogram comparing the distribution of true DM values (gray) to reconstructed DM values (orange) across the entire TNG300 box. The reconstructed DM distribution closely matches the true distribution, though the model shows a systematic underprediction of approximately 0.1 in $\log_{10}(\mathrm{DM})$ on average.
 }
-    \label{fig:placeholder}
+    \label{fig:tng300}
 \end{figure}
 \section{Results}
 \label{sec:results}
@@ -139,7 +131,8 @@ we give the model a galaxy field a set of parameters. Ideally, the model will kn
 What matters in FRB science is the accuracy of the dispersion measure from a sightline (a single pixel). In figure \ref{fig:placeholder} the scatter plot compares the reconstruction DM and true DM across all sightlines (pixels) in a CAMELS test box. The plot shows a tight scatter around a 1:1 line with $\sigma = xxx$. The model does better in lower DM higher DMs as the scatter broadens with higher DMs. The histogram of the same figure demonstrates that the model can reproduce the distribution of DMs accurately, not just the individual sightlines. which means the model knows how to map between galaxies (input) and gas (output). 
 
 To validate the model's predictions, we examined DM samples at individual pixels across different cosmic environments. Figure \ref{fig:patch_hist_box9} shows 150 independent samples drawn from the model at three representative locations: a void, a filament, and a dense node. In all three environments, the model's samples cluster tightly around the ground truth value. This is important because instead of giving a single point estimate like "DM = 1000", the model provides a distribution: "DM is likely between X and Y." The true value sits in the middle of this distribution which shows the model has learned realistic uncertainty. It's not overconfident (which would give you a sharp spike that might miss the truth) and it's not useless (which would give you a huge spread).
-
+\\
+To assess the model's ability to preserve the relative ordering of DM values, we computed the rank correlation between true and reconstructed dispersion measures. Figure \ref{fig:rank} shows a 2D histogram comparing the rank of true DM values to the rank of reconstructed DM values across all lines of sight in a test box. High density concentrated along the diagonal (white dashed line) indicates that the model accurately preserves the relative ordering of DM values from lowest to highest. This demonstrates that even where absolute DM predictions may deviate from the truth, the model correctly identifies which regions have more or less gas than others. This rank-based metric is particularly robust to systematic biases and confirms that the model captures the amplitude distribution and relative structure of the cosmic web.\\
 To test whether the model generalizes beyond the training distribution, we applied it to TNG300, a simulation box six times larger than the CAMELS50 training data (302 vs 50 $h^{-1}$ Mpc on a side). We rescaled the TNG300 data using the same preprocessing pipeline as the training data. Figure \ref{fig:tng300_generalization} shows that the model successfully reconstructs the DM distribution across the larger box. The reconstructed DM histogram closely matches the true distribution, which demonstrates that the model learned generalizable physics rather than memorizing training patterns, and can scale to significantly larger volumes than those used for training. Although the model shows a systematic underprediction of approximately 0.1 in $\log_{10}(\mathrm{DM})$ on average which could be due to the normalization process (we normalize using CAMELS50 mean/std, but TNG300 might have different gas statistics. Ask Aizhanxxx.)
 
 
@@ -152,7 +145,17 @@ To test whether the model generalizes beyond the training distribution, we appli
 \end{figure}
 \section{Discussion}
 \label{sec:discussion}
+In generalization of our model to TNG 300, and also in general with the test boxes, the distribution of dispersion measure in the reconstruction has a systematic offset from that of the true distribution (Figure \ref{fig:tng300}). At the same time, the rank correlation in Figure \ref{fig:rank} demonstrates that the relative ordering of the DM values is accurate with a Spearman rank correlation of 0.8517 xxx. This validates that the relative gas distribution in the reconstruction is trustworthy. Therefore, for the FRB science applications, this is not problematic because given the known value of $\Omega_b$ from cosmology and observed DM of an FRB, we can calibrate out the offset and extract accurate absolute DM. 
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/rank_density.pdf}
+     \caption{
+    2D histogram showing the rank correlation of DM values: the x-axis represents the rank of true DM values (sorted from lowest to highest), and the y-axis represents the rank of reconstructed DM values from the model's posterior mean. The white dashed line indicates perfect 1:1 agreement. The density of points (color scale from purple to yellow) shows the concentration of lines of sight at each rank pair. High density along the diagonal demonstrates that the model preserves the relative ordering of DM values across the full dynamic range, even when absolute predictions deviate. 
+    Spearman rank correlation: 0.8517
+}
+    \label{fig:rank}
+\end{figure}
 \section{ACKNOWLEDGMENTS}
 
 \clearpage
