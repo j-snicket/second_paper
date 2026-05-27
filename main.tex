@@ -7,7 +7,7 @@
 \usepackage{graphicx}
 % \usepackage{caption}
 \begin{document}
-\title{xxx}
+\title{Diffusion Based 3D Reconstruction of the Cosmic Baryons}
 
 \author[0000-0001-9580-1043]{Maryam Hussaini}
 \email{maryam.hussaini@cfa.harvard.edu} % from Liam: only list your email, you are corresponding author.
@@ -27,12 +27,15 @@
 
 
 \begin{abstract}
-In this work, we introduce a method to reconstruct gas fields from galaxies using a diffusion model. The diffusion model is trained on the CAMELS50 simulation, IllustrisTNG suite. We demonstrate that the diffusion model can predict the posterior distribution of the underlying gas fields from the given galaxy fields, weighted by stellar mass. 
+The complex relationship between galaxies and diffuse gas at large scales depends strongly on astrophysical feedback and cosmology. The dispersion of Fast Radio Bursts (FRBs) is a column of cosmic baryon density and is dominated by the intergalactic medium, which is not necessarily captured by traditional halo model prescriptions. We introduce a diffusion model to reconstruct 3D gas density fields from observed galaxy surveys, including redshift space distortions. The probabilistic model is trained on the CAMELS50 simulation suite (IllustrisTNG) and learns to predict the posterior distribution of gas fields conditioned on stellar mass-weighted galaxy density, cosmological parameters, and the baryon suppression powerspectrum. We validate the model on test boxes by showing agreement between predicted and true dispersion measure across individual lines of sight and the overall dispersion measure distribution.
+The model generalizes to a box size $\sim\,4^3$ times larger than the training boxes and can be used to reconstruct the line of sight to cosmological FRBs. The model's 3D gas density predictions vary with input power spectrum and feedback scenarios, opening a new inference path to constrain feedback models from FRBs and other probes of the cosmic baryons. 
 \end{abstract}
-
 
 \section{Introduction}
 \label{sec:intro}
+
+\textbf{Liam comment: The first paragraph should focus on the distribution of cosmic baryons and why it's useful to have a 3D reconstruction algorithm. The second paragraph can describe FRBs. I would frame things less in terms of the ``missing baryons'' and more in terms of the unknown gas distribution at large scales and its implications for precision cosmology and feedback.}
+
 % What is an FRB and why do astronomers care about it?
 FRBs are bright, short-duration (ms), transient, radio signals coming from all over the universe from other galaxies. The radio signal of the burst interacts with the ionized diffuse gas it encounters on its path, and higher frequencies arrive later than lower frequencies. The measurement of this delay, called the dispersion measure, can tell us how much ionized gas was along the line of sight of the FRB. In its path, the FRB interacts with gas in its host galaxy, the intergalactic medium, circumgalactic medium of other galaxies it passes by, and the gas in the Milky Way. By measuring the dispersion measure, we can determine the total sum of all these matters. This is important because some of the matter in the universe, like the intergalactic medium, is very hard to detect by other methods given that it is diffuse and hot. But with FRBs, we can prove this diffuse matter and measure the quantity of it. 
 
@@ -46,6 +49,16 @@ We know the distribution of galaxies in the universe through observations and su
 \\
 \\
 3D reconstruction of the cosmic web is so helpful when using FRBs as probes for the large scale structure. Luckily, due to advances in machine learning, the models for 3D reconstruction have gotten so much better. We are optimizing an existing algorithm to use it for 3D gas reconstruction and tailoring it to FRB studies. By training the model in a feedback conditional way, we will one day be able to use reconstruction of the gas to discriminate against unfavorable feedback parameters. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figures/DMDMfigure_maryam_paper.pdf}
+    \caption{\textbf{Overview of our method for reconstructing the 3D distribution of cosmic baryons}: The diffusion model learns to recover the gas density field conditioned on input galaxy positions $\delta_g(\mathbf{x})$, the cosmological parameters $\mathbf{\Omega}$, and 
+    powerspectrum supression, $sP(k)$. The output is a density field of free electrons, $n_e(\mathbf{x})$, which can 
+    be integrated to predict FRB dispersion measures. The model is probabilistic, allowing sampling from a reconstruction posterior.
+    }
+    \label{fig:overview-fig}
+\end{figure}
 
 To test if our model could be generalized to bigger box sizes, we ran inference on TNG boxes. Our model had trained on the TNG suite in the CAMELS simulation, so it should work equally as well on a TNG input. The box size that our model trained on was 50 mpc $^3$, but we ran inference on boxes as large as 302 mpc$^3$ and recovered good reconstructions. 
 \\
