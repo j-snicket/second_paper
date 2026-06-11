@@ -69,7 +69,7 @@ The dispersion measure (DM) is a measure of the total amount of gas along the li
 where $n_e(l)$ is the electron density at distance $l$ along the line of sight. In practice, DM tells us how much ionized gas the radio signal passed through. In our simulations, we compute DM by summing the gas density along one spatial direction (the line of sight), which produces a 2D map where each pixel value represents the total gas column in that direction. This makes DM a key observable: FRBs measure DM directly, and our reconstructed gas fields allow us to predict what DM values should be for any location in the universe.
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/3d_and_2d_visualization.pdf}
+    \includegraphics[width=0.98\linewidth]{figures/combined_3d_2d_histograms.pdf}
     \caption{\textbf{Top left:} Input galaxy density field used to condition the model. 
 \textbf{Top right:} True gas density from the CAMELS50 simulation for this test box. 
 \textbf{Middle row:} Three samples and the mean posterior of gas density when the model is conditioned on the same cosmological parameters as the test box; the predictions closely match the true gas distribution. 
@@ -78,13 +78,13 @@ This figure demonstrates that the diffusion model learns the relationship betwee
     \label{fig:1}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.98\linewidth]{figures/DM_recon_DM_true.pdf}
-    \caption{%box 10. 
-    \textbf{Left panel:} Scatter plot comparing the model's posterior mean DM predictions (y-axis) against true DM values (x-axis) for all lines of sight through a test CAMELS50 box. Each point represents a single line of sight; the dashed line marks perfect 1:1 agreement. \textbf{Right panel:}  Histogram of DM values from the same test box, showing the distribution of true DM (gray) and model-reconstructed DM (orange). The model reproduces both the point-by-point accuracy of individual lines of sight and the overall statistical distribution of DM values}
-    \label{fig:placeholder}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.98\linewidth]{figures/DM_recon_DM_true.pdf}
+%     \caption{%box 10. 
+%     \textbf{Left panel:} Scatter plot comparing the model's posterior mean DM predictions (y-axis) against true DM values (x-axis) for all lines of sight through a test CAMELS50 box. Each point represents a single line of sight; the dashed line marks perfect 1:1 agreement. \textbf{Right panel:}  Histogram of DM values from the same test box, showing the distribution of true DM (gray) and model-reconstructed DM (orange). The model reproduces both the point-by-point accuracy of individual lines of sight and the overall statistical distribution of DM values}
+%     \label{fig:placeholder}
+% \end{figure}
 
 
 
