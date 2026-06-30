@@ -3,7 +3,7 @@
     \centering
     \includegraphics[width=\linewidth]{figures/DMDMfigure_maryam_paper.pdf}
     \caption{\textbf{Overview of our method for reconstructing the 3D distribution of cosmic baryons}: The diffusion model learns to recover the gas density field conditioned on input galaxy positions $\delta_g(\mathbf{x})$, the cosmological parameters $\mathbf{\Omega}$, and
-    powerspectrum supression, $sP(k)$. The output is a density field of free electrons, $n_e(\mathbf{x})$, which can
+    powerspectrum suppression, $sP(k)$. The output is a density field of free electrons, $n_e(\mathbf{x})$, which can
     be integrated to predict FRB dispersion measures. The model is probabilistic, allowing sampling from a reconstruction posterior.
     }
     \label{fig:overview-fig}
@@ -23,7 +23,7 @@
   \begin{figure*}
     \centering
     \includegraphics[width=0.5\linewidth]{figures/patch_hist_box9.pdf}
-    \caption{\textbf{Top row, left to right:} Input galaxy density field and the true simulation DM map. \textbf{Bottom row, left to right:} The dispersion measure map of the model's posterior mean reconstruction; and the probability density of DM values at three representative pixel locations marked in the maps spanning different cosmic environments (green, cyan, and magenta patches). At each location, the colored distribution shows 150 independent posterior samples drawn from the diffusion model; the dashed vertical line marks the true DM value at that pixel; the gray distribution labeled ``True map'' shows the overall DM distribution across the full test box for reference. The model's posterior samples cluster tightly around the true DM value across all three environments, demonstrating well calibrated uncertainty estimates.}
+    \caption{\textbf{Top row, left to right:} Input galaxy density field and the true simulation DM map. \textbf{Bottom row, left to right:} The dispersion measure map of the model's posterior mean reconstruction; and the probability density of DM values at three representative sightlines marked in the maps spanning different cosmic environments (lawngreen, cyan, and magenta). At each location, the colored distribution shows 150 independent posterior samples drawn from the diffusion model; the dashed vertical line marks the true DM value at that pixel; the gray distribution labeled ``True map'' shows the overall DM distribution across the full test box for reference. The model's posterior samples cluster tightly around the true DM value across all three environments, demonstrating well calibrated uncertainty estimates.}
     \label{fig:patch_hist_box9}
   \end{figure*}
 }
@@ -43,7 +43,7 @@
   \begin{figure*}
     \centering
     \includegraphics[width=0.5\linewidth]{figures/TNG300_generalization.pdf}
-    \caption{    \textbf{(Top row, left to right)} Input galaxy density field; true DM map from a TNG300 simulation box of size $(302\,h^{-1}\,\mathrm{Mpc})^3$; the model's reconstructed mean DM. The model was trained exclusively on CAMELS50 boxes of $(50\,h^{-1}\,\mathrm{Mpc})^3$, making this a 6$\times$ scaling test. (Bottom right) Histogram comparing the distribution of true DM values (gray) to reconstructed DM values (orange) across the entire TNG300 box. The reconstructed DM distribution closely matches the true distribution, though the model shows a systematic underprediction of approximately 0.1 in $\log_{10}(\mathrm{DM})$ on average.
+    \caption{\textbf{(Top left)} Input galaxy density field; \textbf{(top right)} true DM map from a TNG300 simulation box of size $(302\,h^{-1}\,\mathrm{Mpc})^3$; \textbf{(bottom left)} the model's reconstructed mean DM. The model was trained exclusively on CAMELS50 boxes of $(50\,h^{-1}\,\mathrm{Mpc})^3$, making this a 6$\times$ scaling test. \textbf{(Bottom right)} Histogram comparing the distribution of true DM values (gray) to reconstructed DM values (orange) across the entire TNG300 box. The reconstructed DM distribution closely matches the true distribution, though the model shows a systematic underprediction of approximately 0.1 in $\log_{10}(\mathrm{DM})$ on average.
 }
     \label{fig:tng300}
   \end{figure*}
@@ -53,7 +53,7 @@
   \begin{figure*}
     \centering
     \includegraphics[width=0.98\linewidth]{figures/stitched_boxes.pdf}
-    \caption{An example of a reconstructed FRB line of site on simulated data. 10 CAMELS50 simulation boxes are tiled along the line-of-sight axis to construct an extended sightline spanning $\sim500\,h^{-1}\,\mathrm{Mpc}$. \textbf{Top:} True gas density field from the simulation. \textbf{Bottom:} Model reconstruction of the gas density field. The model successfully recovers the large-scale gas structure across the full stitched volume, demonstrating its ability to reconstruct realistic FRB sightlines from galaxy observations alone.}
+    \caption{An example of a reconstructed FRB line of sight on simulated data. 10 CAMELS50 simulation boxes are tiled along the line-of-sight axis to construct an extended sightline spanning $\sim500\,h^{-1}\,\mathrm{Mpc}$. \textbf{Top:} True gas density field from the simulation. \textbf{Bottom:} Model reconstruction of the gas density field; the white dashed line marks an example FRB sightline, with the source location indicated by the star. The model successfully recovers the large-scale gas structure across the full stitched volume, demonstrating its ability to reconstruct realistic FRB sightlines from galaxy observations alone.}
     \label{fig:cigar}
   \end{figure*}
 }

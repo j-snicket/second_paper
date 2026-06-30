@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.3)  30 JUN 2026 16:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.3)  30 JUN 2026 17:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -650,11 +650,11 @@ File: figures/combined_3d_2d_histograms.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/combined_3d_2d_histograms.pdf  used on input l
 ine 109.
 (pdftex.def)             Requested size: 502.85289pt x 460.76154pt.
-<figures/stitched_boxes.pdf, id=102, 971.92891pt x 277.64215pt>
+<figures/stitched_boxes.pdf, id=102, 832.7535pt x 279.4741pt>
 File: figures/stitched_boxes.pdf Graphic file (type pdf)
 <use figures/stitched_boxes.pdf>
 Package pdftex.def Info: figures/stitched_boxes.pdf  used on input line 114.
-(pdftex.def)             Requested size: 502.85289pt x 143.64607pt.
+(pdftex.def)             Requested size: 502.85289pt x 168.75612pt.
 
 [2]
 <figures/patch_hist_box9.pdf, id=123, 791.3654pt x 641.68169pt>
@@ -681,7 +681,7 @@ Package pdftex.def Info: figures/feedback_range.pdf  used on input line 151.
 (pdftex.def)             Requested size: 487.45999pt x 219.33235pt.
  [5 <./figures/stitched_boxes.pdf> <./figures/patch_hist_box9.pdf>]
 [6 <./figures/rank_density.pdf> <./figures/feedback_range.pdf>]
-<figures/TNG300_generalization.pdf, id=557, 971.62889pt x 951.46034pt>
+<figures/TNG300_generalization.pdf, id=561, 971.62889pt x 951.46034pt>
 File: figures/TNG300_generalization.pdf Graphic file (type pdf)
 <use figures/TNG300_generalization.pdf>
 Package pdftex.def Info: figures/TNG300_generalization.pdf  used on input line 
@@ -705,10 +705,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 5E1418193B8828024FB5B437D14922EF;716.
  ) 
 Here is how much of TeX's memory you used:
- 13586 strings out of 474116
- 201459 string characters out of 5743683
+ 13588 strings out of 474116
+ 201477 string characters out of 5743683
  1953187 words of memory out of 5000000
- 35724 multiletter control sequences out of 15000+600000
+ 35726 multiletter control sequences out of 15000+600000
  569409 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,7n,93p,1493b,466s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -737,9 +737,9 @@ ve/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
 4/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2024/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on main.pdf (9 pages, 10422987 bytes).
+Output written on main.pdf (9 pages, 10326945 bytes).
 PDF statistics:
- 769 PDF objects out of 1000 (max. 8388607)
+ 773 PDF objects out of 1000 (max. 8388607)
  396 compressed objects within 4 object streams
  43 named destinations out of 1000 (max. 500000)
  92 words of extra memory for PDF output out of 10000 (max. 10000000)
