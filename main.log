@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.3)  30 JUN 2026 16:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.3)  30 JUN 2026 16:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -653,22 +653,22 @@ ine 109.
 <figures/stitched_boxes.pdf, id=102, 971.92891pt x 277.64215pt>
 File: figures/stitched_boxes.pdf Graphic file (type pdf)
 <use figures/stitched_boxes.pdf>
-Package pdftex.def Info: figures/stitched_boxes.pdf  used on input line 121.
+Package pdftex.def Info: figures/stitched_boxes.pdf  used on input line 114.
 (pdftex.def)             Requested size: 502.85289pt x 143.64607pt.
 
 [2]
 <figures/patch_hist_box9.pdf, id=123, 791.3654pt x 641.68169pt>
 File: figures/patch_hist_box9.pdf Graphic file (type pdf)
 <use figures/patch_hist_box9.pdf>
-Package pdftex.def Info: figures/patch_hist_box9.pdf  used on input line 145.
+Package pdftex.def Info: figures/patch_hist_box9.pdf  used on input line 138.
 (pdftex.def)             Requested size: 256.55872pt x 208.03493pt.
 <figures/rank_density.pdf, id=126, 543.5835pt x 455.90335pt>
 File: figures/rank_density.pdf Graphic file (type pdf)
 <use figures/rank_density.pdf>
-Package pdftex.def Info: figures/rank_density.pdf  used on input line 152.
+Package pdftex.def Info: figures/rank_density.pdf  used on input line 145.
 (pdftex.def)             Requested size: 256.55872pt x 215.17894pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--157
+Underfull \hbox (badness 10000) in paragraph at lines 147--150
 
  []
 
@@ -677,7 +677,7 @@ rams.pdf>]
 <figures/feedback_range.pdf, id=327, 1070.51947pt x 481.67683pt>
 File: figures/feedback_range.pdf Graphic file (type pdf)
 <use figures/feedback_range.pdf>
-Package pdftex.def Info: figures/feedback_range.pdf  used on input line 158.
+Package pdftex.def Info: figures/feedback_range.pdf  used on input line 151.
 (pdftex.def)             Requested size: 487.45999pt x 219.33235pt.
  [5 <./figures/stitched_boxes.pdf> <./figures/patch_hist_box9.pdf>]
 [6 <./figures/rank_density.pdf> <./figures/feedback_range.pdf>]
@@ -685,10 +685,10 @@ Package pdftex.def Info: figures/feedback_range.pdf  used on input line 158.
 File: figures/TNG300_generalization.pdf Graphic file (type pdf)
 <use figures/TNG300_generalization.pdf>
 Package pdftex.def Info: figures/TNG300_generalization.pdf  used on input line 
-167.
+160.
 (pdftex.def)             Requested size: 256.55872pt x 251.22115pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--194
+Underfull \hbox (badness 10000) in paragraph at lines 183--187
 
  []
 
