@@ -5,4 +5,122 @@
 \providecommand{\doeprint}[1]{\href{http://ascl.net/#1}{\nolinkurl{http://ascl.net/#1}}}
 \providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
 
+\bibitem[{{Bigwood} {et~al.}(2024){Bigwood}, {Amon}, {Schneider}, {Salcido},
+  {McCarthy}, {Preston}, {Sanchez}, {Sijacki}, {Schaan}, {Ferraro},
+  {Battaglia}, {Chen}, {Dodelson}, {Roodman}, {Pieres}, {Fert{\'e}}, {Alarcon},
+  {Drlica-Wagner}, {Choi}, {Navarro-Alsina}, {Campos}, {Ross}, {Carnero
+  Rosell}, {Yin}, {Yanny}, {S{\'a}nchez}, {Chang}, {Davis}, {Doux}, {Gruen},
+  {Rykoff}, {Huff}, {Sheldon}, {Tarsitano}, {Andrade-Oliveira}, {Bernstein},
+  {Giannini}, {Diehl}, {Huang}, {Harrison}, {Sevilla-Noarbe}, {Tutusaus},
+  {Elvin-Poole}, {McCullough}, {Zuntz}, {Blazek}, {DeRose}, {Cordero}, {Prat},
+  {Myles}, {Eckert}, {Bechtol}, {Herner}, {Secco}, {Gatti}, {Raveri}, {Kind},
+  {Becker}, {Troxel}, {Jarvis}, {MacCrann}, {Friedrich}, {Alves}, {Leget},
+  {Chen}, {Rollins}, {Wechsler}, {Gruendl}, {Cawthon}, {Allam}, {Bridle},
+  {Pandey}, {Everett}, {Shin}, {Hartley}, {Fang}, {Zhang}, {Aguena}, {Annis},
+  {Bacon}, {Bertin}, {Bocquet}, {Brooks}, {Carretero}, {Castander}, {da Costa},
+  {Pereira}, {De Vicente}, {Desai}, {Doel}, {Ferrero}, {Flaugher}, {Frieman},
+  {Garc{\'\i}a-Bellido}, {Gaztanaga}, {Gutierrez}, {Hinton}, {Hollowood},
+  {Honscheid}, {Huterer}, {James}, {Kuehn}, {Lahav}, {Lee}, {Marshall},
+  {Mena-Fern{\'a}ndez}, {Miquel}, {Muir}, {Paterno}, {Plazas Malag{\'o}n},
+  {Porredon}, {Romer}, {Samuroff}, {Sanchez}, {Sanchez Cid}, {Smith},
+  {Soares-Santos}, {Suchyta}, {Swanson}, {Tarle}, {To}, {Weaverdyck}, {Weller},
+  {Wiseman}, \& {Yamamoto}}]{bigwood2024}
+{Bigwood}, L., {Amon}, A., {Schneider}, A., {et~al.} 2024, \mnras, 534, 655,
+  \dodoi{10.1093/mnras/stae2100}
+
+\bibitem[{Hadzhiyska {et~al.}(2024)Hadzhiyska, Ferraro, Guachalla, Schaan,
+  Aguilar, Battaglia, Bond, Brooks, Calabrese, Choi, Claybaugh, Coulton,
+  Dawson, Devlin, Dey, Doel, Duivenvoorden, Dunkley, Farren, Font-Ribera,
+  Forero-Romero, Gallardo, Gaztañaga, Gontcho, Gralla, Guillou, Gutierrez,
+  Guy, Hill, Hložek, Honscheid, Juneau, Kisner, Kremin, Landriau, Liu, Louis,
+  MacCrann, de~Macorra, Madhavacheril, Manera, Meisner, Miquel, Moodley,
+  Moustakas, Mroczkowski, Naess, Newman, Niemack, Niz, Page,
+  Palanque-Delabrouille, Partridge, Percival, Prada, Qu, Rossi, Sanchez,
+  Schlegel, Schubnell, Sehgal, Seo, Sifón, Spergel, Sprayberry, Staggs,
+  Tarlé, Vargas, Vavagiakis, Weaver, Wollack, Zhou, \& Zou}]{hadzhiyska2024}
+Hadzhiyska, B., Ferraro, S., Guachalla, B.~R., {et~al.} 2024, Evidence for
+  large baryonic feedback at low and intermediate redshifts from kinematic
+  Sunyaev-Zel'dovich observations with ACT and DESI photometric galaxies.
+\newblock \doarXiv{2407.07152}
+
+\bibitem[{Hong {et~al.}(2021)Hong, Jeong, Hwang, \& Kim}]{hong2021}
+Hong, S.~E., Jeong, D., Hwang, H.~S., \& Kim, J. 2021, The Astrophysical
+  Journal, 913, 76
+
+\bibitem[{Khrykin {et~al.}(2024)Khrykin, Ata, Lee, Simha, Huang, Prochaska,
+  Tejos, Bannister, Cooke, Day, Deller, Glowacki, Gordon, James, Marnoch,
+  Shannon, Zhang, \& Bernales-Cortes}]{Khrykin_2024}
+Khrykin, I.~S., Ata, M., Lee, K.-G., {et~al.} 2024, The Astrophysical Journal,
+  973, 151, \dodoi{10.3847/1538-4357/ad6567}
+
+\bibitem[{{Lee} {et~al.}(2023){Lee}, {Khrykin}, {Simha}, {Ata}, {Huang},
+  {Prochaska}, {Tejos}, {Cooke}, {Nagamine}, \& {Zhang}}]{kglee23}
+{Lee}, K.-G., {Khrykin}, I.~S., {Simha}, S., {et~al.} 2023, \apjl, 954, L7,
+  \dodoi{10.3847/2041-8213/acefb5}
+
+\bibitem[{{Lorimer} {et~al.}(2007){Lorimer}, {Bailes}, {McLaughlin},
+  {Narkevic}, \& {Crawford}}]{lorimer2007}
+{Lorimer}, D.~R., {Bailes}, M., {McLaughlin}, M.~A., {Narkevic}, D.~J., \&
+  {Crawford}, F. 2007, Science, 318, 777, \dodoi{10.1126/science.1147532}
+
+\bibitem[{{Macquart} {et~al.}(2020){Macquart}, {Prochaska}, {McQuinn},
+  {Bannister}, {Bhandari}, {Day}, {Deller}, {Ekers}, {James}, {Marnoch},
+  {Os{\l}owski}, {Phillips}, {Ryder}, {Scott}, {Shannon}, \&
+  {Tejos}}]{macquart2020}
+{Macquart}, J.~P., {Prochaska}, J.~X., {McQuinn}, M., {et~al.} 2020, \nat, 581,
+  391, \dodoi{10.1038/s41586-020-2300-2}
+
+\bibitem[{{McCarty} {et~al.}(2026){McCarty}, {Connor}, \&
+  {Konietzka}}]{mccarty2026}
+{McCarty}, S., {Connor}, L., \& {Konietzka}, R.~M. 2026, arXiv e-prints,
+  arXiv:2602.16781, \dodoi{10.48550/arXiv.2602.16781}
+
+\bibitem[{{Mudur} \& {Finkbeiner}(2022)}]{mudur2022}
+{Mudur}, N., \& {Finkbeiner}, D.~P. 2022, arXiv e-prints, arXiv:2211.12444,
+  \dodoi{10.48550/arXiv.2211.12444}
+
+\bibitem[{{Ono} {et~al.}(2024){Ono}, {Park}, {Mudur}, {Ni}, {Cuesta-Lazaro}, \&
+  {Villaescusa-Navarro}}]{ono2024}
+{Ono}, V., {Park}, C.~F., {Mudur}, N., {et~al.} 2024, \apj, 970, 174,
+  \dodoi{10.3847/1538-4357/ad5957}
+
+\bibitem[{{Park} {et~al.}(2023){Park}, {Ono}, {Mudur}, {Ni}, \&
+  {Cuesta-Lazaro}}]{park2023}
+{Park}, C.~F., {Ono}, V., {Mudur}, N., {Ni}, Y., \& {Cuesta-Lazaro}, C. 2023,
+  arXiv e-prints, arXiv:2311.08558, \dodoi{10.48550/arXiv.2311.08558}
+
+\bibitem[{{Petroff} {et~al.}(2019){Petroff}, {Hessels}, \&
+  {Lorimer}}]{petroffreview}
+{Petroff}, E., {Hessels}, J.~W.~T., \& {Lorimer}, D.~R. 2019, \aapr, 27, 4,
+  \dodoi{10.1007/s00159-019-0116-6}
+
+\bibitem[{{Popesso} {et~al.}(2026){Popesso}, {Biviano}, {Marini}, {Dolag},
+  {Vladutescu-Zopp}, {Csizi}, {Biffi}, {Lamer}, {Robothan}, {Bravo},
+  {Lovisari}, {Ettori}, {Angelinelli}, {Driver}, {Toptun}, {Dev}, {Mazengo},
+  {Merloni}, {Comparat}, {Ponti}, {Mroczkowski}, {Bulbul}, {Grandis}, \&
+  {Bahar}}]{popesso2026}
+{Popesso}, P., {Biviano}, A., {Marini}, I., {et~al.} 2026, \aap, 707, A362,
+  \dodoi{10.1051/0004-6361/202453256}
+
+\bibitem[{{Sharma} {et~al.}(2025){Sharma}, {Krause}, {Ravi}, {Reischke},
+  {R.~S.}, \& {Connor}}]{sharma2025}
+{Sharma}, K., {Krause}, E., {Ravi}, V., {et~al.} 2025, \apj, 989, 81,
+  \dodoi{10.3847/1538-4357/adeca4}
+
+\bibitem[{{Simha} {et~al.}(2020){Simha}, {Burchett}, {Prochaska}, {Chittidi},
+  {Elek}, {Tejos}, {Jorgenson}, {Bannister}, {Bhandari}, {Day}, {Deller},
+  {Forbes}, {Macquart}, {Ryder}, \& {Shannon}}]{simha2020}
+{Simha}, S., {Burchett}, J.~N., {Prochaska}, J.~X., {et~al.} 2020, \apj, 901,
+  134, \dodoi{10.3847/1538-4357/abafc3}
+
+\bibitem[{{Simha} {et~al.}(2023){Simha}, {Lee}, {Prochaska}, {Khrykin},
+  {Huang}, {Tejos}, {Marnoch}, {Ata}, {Bernales}, {Bhandari}, {Cooke},
+  {Deller}, {Ryder}, \& {Zhang}}]{simha2023}
+{Simha}, S., {Lee}, K.-G., {Prochaska}, J.~X., {et~al.} 2023, \apj, 954, 71,
+  \dodoi{10.3847/1538-4357/ace324}
+
+\bibitem[{{Villanueva-Domingo} \& {Villaescusa-Navarro}(2021)}]{Villanueva2021}
+{Villanueva-Domingo}, P., \& {Villaescusa-Navarro}, F. 2021, \apj, 907, 44,
+  \dodoi{10.3847/1538-4357/abd245}
+
 \end{thebibliography}
