@@ -35,23 +35,30 @@ The model generalizes to a box size $\sim\,4^3$ times larger than the training b
 \section{Introduction}
 \label{sec:intro}
 
-\textbf{The distribution of cosmic baryons has remained a pressing problem in extragalactic astronomy for decades, due to a lack of 
+The distribution of cosmic baryons has remained a pressing problem in extragalactic astronomy for decades, due to a lack of 
 direct measurements and its role in our understanding of galaxy formation and precision cosmology. The majority 
 of this gas resides in a diffuse ionized state in the intergalactic medium (IGM) and in dark matter halos. 
 The precise distribution of the gas is modulated 
 by complex astrophysical processes in galaxy evolution. In recent years, new probes of the cosmic baryons have begun 
 to shed light on gas at the scales of halos and above \citep{bigwood2024, popesso2026, hadzhiyska2024, FRBs}. Several measurements 
 suggest that strong AGN feedback depletes the 
-baryon budgets of group-scale halos \citep{XX, mccarty2026}.}
+baryon budgets of group-scale halos \citep{XX, mccarty2026}.
 
 Supernovae, AGN, and \textbf{cosmic rays} inject energy into 
-halo gas, heating it, creating winds, and pushing the gas out of galaxies and halos. \textbf{These processes regulate star formation and the growth of supermassive black holes, leading to non-linear galaxy feedback that remains poorly constrained.} 
+halo gas, heating it, creating winds, and pushing the gas out of galaxies and halos, or preventing its accretion and cooling. \textbf{These processes regulate star formation and the growth of supermassive black holes, leading to non-linear galaxy feedback that remains poorly constrained.} 
 %It is the regulating mechanism that keeps galaxies from growing too much and forming too many stars. 
-In simulations, choosing the right feedback model means the difference between a simulated universe that matches our observations and a simulated universe with massive galaxies that have too many stars. Feedback sits at the intersection of galaxy formation and precision cosmology. In galaxy formation feedback regulates how baryons turn into stars, and determines the galaxy population. In cosmology, feedback is the contaminant that breaks the coupling between dark matter and baryons. It redistributes baryons and changes the baryonic power spectrum from that of the dark matter (by suppressing the baryon power spectrum at small scales). Understanding feedback will enable us to answer galaxy formation and have more precision in measuring cosmological parameters. 
+In simulations, the choice of inaccurate feedback
+prescriptions result in discrepancy with 
+observations in the stellar mass function, halo gas fractions, baryon density profiles, and temperature distributions. Feedback sits at the intersection of galaxy formation and precision cosmology. In galaxy formation feedback regulates how baryons turn into stars, the nature of the CGM, and determines galaxy populations. In cosmology, feedback is the contaminant that breaks the coupling between dark matter and baryons. Feedback redistributes baryons and changes the baryonic power spectrum from that of the dark matter via suppression of power at small scales. Understanding feedback offers a path to answering questions in galaxy formation and alleviates a key systematic in weak lensing cosmology surveys.
 
-Given that feedback is responsible for redistribution of baryons, 3D spatial distribution of cosmic gas would enable us to directly see the imprint of feedback on the gas and probe the feedback processes [cite cite cite]. While reconstruction of the dark matter field and velocity field from galaxy surveys has been matured \citep{hong2021, Villanueva2021, mudur2022, park2023}[cite for velocity field cite cite] the 3D reconstruction of the cosmic baryons is comparatively unexplored. \textbf{Liam comment: add a couple of sentences on what's been done so far on baryon reconstruction, but don't mention FRBs yet.}
+Given that feedback and cosmology are responsible for 
+the distribution of cosmic baryons, methods that allow us to infer the 3D distribution of gas are valuable for 
+myriad areas in extragalactic astronomy [cite cite cite]. Reconstruction of the dark matter field and velocity field from galaxy surveys has made significant advances in the past decade \citep{hong2021, Villanueva2021, mudur2022, park2023}[cite for velocity field cite cite]. The 3D reconstruction of the cosmic baryons is comparatively unexplored. \textbf{Liam comment: add a couple of sentences on what's been done so far on baryon reconstruction, but don't mention FRBs yet.}
 
-To connect a reconstructed gas field to observations, we use fast radio bursts (FRBs), a powerful probe of ionized baryons. FRBs are bright, millisecond long radio transients originating from galaxies across the Universe \citep{lorimer2007, petroffreview}. As the burst propagates toward us, its radio signal interacts with the ionized gas it encounters along the way and higher frequencies arrive earlier than lower frequencies, an effect known as dispersion. The magnitude of this delay, the Dispersion Measure (DM), is directly proportional to the integrated free electron column density along the line of sight. For a source at redshift $z_s$, the mean cosmic contribution is
+
+One recent, incisive probe of the cosmic baryon distribution is the dispersion of Fast Radio Bursts (FRBs). 
+%To connect a reconstructed gas field to observations, we use fast radio bursts (FRBs), a powerful probe of ionized baryons. 
+FRBs are bright, millisecond-duration radio transients originating from galaxies across the Universe \citep{lorimer2007, petroffreview}. As the burst propagates toward us, its radio signal interacts with the ionized gas it encounters along the way and higher frequencies arrive earlier than lower frequencies, an effect known as dispersion. The magnitude of this delay, the Dispersion Measure (DM), is directly proportional to the integrated free electron column density along the line of sight. For a source at redshift $z_s$, the mean cosmic contribution is
 \begin{equation}
     \langle \mathrm{DM_{cosmic}}(z_s) \rangle = \int_0^{z_s} \frac{c \, \bar{n}_e(z) \, (1+z)}{H(z)} \, dz,
 \end{equation}
@@ -123,13 +130,41 @@ We preprocess the galaxy field by applying a minimum stellar mass threshold $M_{
 
 The gas density field is preprocessed by first applying a $\log_{10}$ transformation (with a small offset of $10^{-6}$ to avoid $\log(0)$), then standardizing to zero mean and unit variance using statistics computed from the training data ($\mu = 9.5$, $\sigma = 0.56$ for the $128^3$ resolution).
 
-\textbf{MISSING: details of how the suppression spectrum is computed exactly.} For each training box, we compute the baryon suppression spectrum $sP(k) = P_\mathrm{hydro}(k)/P_\mathrm{DM}(k)$, the ratio of the baryonic matter power spectrum to the total matter power spectrum. This ratio encodes the combined signature of cosmological parameters (which determine baryon abundance) and feedback strength (which determines baryon redistribution), providing a more sensitive conditioning signal than individual feedback parameters alone.
+
+For each training box, we adopt the baryon suppression spectrum $sP(k) = P_\mathrm{hydro}(k)/P_\mathrm{DM}(k)$, the ratio of the matter power spectrum in the full hydrodynamical simulation to that of its gravity only ($N$-body) counterpart, computed with \texttt{Pylians}\citep{villaescusa-navarro2018}. This ratio quantifies the scale-dependent redistribution of matter by baryonic physics and feedback, which suppresses power on scales $k \sim 1 - 50\,h\,\mathrm{Mpc}^{-1}$, and enhances in smaller, galactic scales\citep{genel2026}. It encodes the combined signature of cosmological parameters (which set the baryon abundance) and feedback strength (which sets the redistribution), providing a more sensitive conditioning signal than individual feedback parameters alone.
 
 We use a conditional flow matching model to learn the posterior $p_\theta(n_e(\mathbf{x}) \mid \delta_g(\mathbf{x}), \mathbf{\Omega}, sP(k))$. Flow matching learns to transport samples from a noise distribution $x_0 \sim \mathcal{N}(0, \mathbf{I})$ to the target data distribution $x_1$ along a linear interpolation path $x_t = (1-t)x_0 + t x_1$, $t \in [0,1]$, by minimizing the mean-squared error between the predicted and true velocity fields $u_t = x_1 - x_0$. At inference time, the learned velocity field is integrated using a neural ODE solver with 50 Euler steps. The backbone is a 3D conditional U-Net operating on $128^3$ voxel grids, with three encoder/decoder levels at channel dimensions $[32, 64, 64]$, $3\times3\times3$ circular-padded convolutions, group normalization, and SiLU activations. The galaxy field is concatenated channel-wise with the target field; cosmological parameters and $sP(k)$ are embedded via sinusoidal positional encodings and broadcast to all U-Net blocks. The model is trained with AdamW at a learning rate of $10^{-4}$, effective batch size 16 (4 gradient accumulation steps), $\ell_2$ gradient clipping at 1.0, and 16-bit mixed precision for 30,000 gradient steps. We use 980 boxes for training, 10 for validation, and 10 for testing.
 
 \textbf{Describe how we go from ne to DM. Describe then how we compute p(DM) from p(ne). Say that we can 
 generate DM maps from galaxy positions or different cosmological parameters, 
 power spectra. Use equations.}
+The dispersion measure quantifies the total column of free electrons along the line of sight toward a source, and is defined as
+
+\begin{equation}
+\mathrm{DM} = \int_0^d \frac{n_e(l)}{1+z}\,dl,
+\end{equation}
+where $n_e(l)$ is the electron density at distance $l$ along the path and the factor $(1+z)$ accounts for cosmological redshifting of the dispersion. For our reconstructed fields, we convert the gas density to a free electron number density and integrate along one spatial axis of the box (the line of sight direction), accounting for the physical voxel path length. This collapses the 3D field into a 2D map in which each pixel gives the total electron column, in $\mathrm{pc\,cm^{-3}}$, in that direction.
+% Because DM is a linear functional of $n_e$, the posterior over gas fields produced by our model maps directly to a posterior over DM. Each reconstruction is a sample $n_e(\mathbf{x})$ where $\mathbf{x}$ is a 3D position vector; integrating it along the line of sight yields one DM value, so a set of reconstructions gives a set of DM values that are samples from the DM posterior. No additional modeling is required to propagate the uncertainty, since the line of sight integral is a simple weighted sum.
+
+Our model produces a posterior over gas fields conditioned on the observed galaxy field, cosmology, and the suppression spectrum:
+
+\begin{equation}
+n_e(\mathbf{x}_\perp, l) \sim p_\theta\!\left(n_e \mid \delta_g, \boldsymbol{\Omega}, sP(k)\right),
+\end{equation}
+
+where $\mathbf{x}_\perp$ denotes the two sky coordinates and $l$ the line-of-sight coordinate. The dispersion measure at each sky position is the line-of-sight integral of the electron density,
+
+\begin{equation}
+\mathrm{DM}(\mathbf{x}_\perp) = \int_0^d \frac{n_e(\mathbf{x}_\perp, l)}{1+z}\, dl.
+\end{equation}
+
+Because this integral is a linear functional of $n_e$, applying it to each posterior sample yields a corresponding sample of DM, so the gas-field posterior induces a posterior over dispersion measure directly:
+
+\begin{equation}
+\mathrm{DM}(\mathbf{x}_\perp) \sim p_\theta\!\left(\mathrm{DM} \mid \delta_g, \boldsymbol{\Omega}, sP(k)\right).
+\end{equation}
+
+No additional modeling is needed to propagate the uncertainty, since DM is obtained from $n_e$ by a simple weighted sum along the line of sight.
 
 To test generalization, we apply the trained model to TNG300, a simulation four times larger than the training boxes in volume $(302\,h^{-1}\,\mathrm{Mpc})^3$. We preprocess the TNG300 galaxy field using the same pipeline as above, rescaling galaxy positions by a factor of $50/35$ to match the CAMELS50 voxel resolution, and apply the same normalization statistics from training.
 
